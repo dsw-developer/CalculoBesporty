@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Entrega em Luanda</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora de Entrega em Luanda</h1>
+        
+        <div class="form">
+            <label for="municipio">Selecione o Município:</label>
+            <select id="municipio">
+                <option value="">Selecione...</option>
+            </select><br><br>
+
+            <label for="bairro">Selecione o Bairro:</label>
+            <select id="bairro">
+                <option value="">Selecione...</option>
+                <!-- Opções de bairros populadas dinamicamente -->
+            </select><br><br>
+
+            <button onclick="calcularEntrega()">Calcular</button>
+        </div>
+
+        <div id="resultado" class="resultado">
+            <!-- Aqui vai aparecer o resultado do cálculo -->
+        </div>
+    </div>
+    <script>
+        function popularMunicipios() {
+            // Lista dos 7 municípios de Luanda
+            var municipios = ['Luanda', 'Belas', 'Cacuaco', 'Cazenga', 'Ícolo e Bengo', 'Quiçama', 'Viana'];
+
+            var selectMunicipio = document.getElementById('municipio');
+            municipios.forEach(function(municipio) {
+                var option = document.createElement('option');
+                option.text = municipio;
+                option.value = municipio;
+                selectMunicipio.add(option);
+            });
+        }
+
+        function popularBairros(municipioSelecionado) {
+            // Exemplo de mapeamento de bairros por município
+            var bairrosPorMunicipio = {
+                'Luanda': ['Ingombota', 'Maianga', 'Samba'],
+                'Belas': ['Talatona', 'Benfica', 'Morro Bento'],
+                'Cacuaco': ['Sequele', 'Kicolo', 'Cacuaco'],
+                'Cazenga': ['Hoji Ya Henda', 'Tala Hady', 'Cazenga'],
+                'Ícolo e Bengo': ['Catete', 'Bom Jesus', 'Cabiri'],
+                'Quiçama': ['Muxima', 'Quixinge', 'Demba Chio'],
+                'Viana': ['Estalagem', 'Zango', 'Calumbo']
+            };
+
+            var bairros = bairrosPorMunicipio[municipioSelecionado] || [];
+
+            var selectBairro = document.getElementById('bairro');
+            selectBairro.innerHTML = '<option value="">Selecione...</option>'; // Limpar opções anteriores
+
+            bairros.forEach(function(bairro) {
+                var option = document.createElement('option');
+                option.text = bairro;
+                option.value = bairro;
+                selectBairro.add(option);
+            });
+        }
+
+        function calcularEntrega() {
+            var municipio = document.getElementById('municipio').value;
+            var bairro = document.getElementById('bairro').value;
+
+            if (!municipio || !bairro) {
+                alert('Por favor, selecione um município e um bairro.');
+                return;
+            }
+
+            // Tabela de custos adicionais
+            var custosAdicionais = {
+                'Luanda': {'Ingombota': 2000, 'Maianga': 2050, 'Samba': 2000},
+                'Belas': {'Talatona': 2050, 'Benfica': 2100, 'Morro Bento': 2150},
+                'Cacuaco': {'Sequele': 3900, 'Kicolo': 3250, 'Cacuaco': 3300},
+                'Cazenga': {'Hoji Ya Henda': 2600, 'Tala Hady': 2550, 'Cazenga': 2500},
+                'Ícolo e Bengo': {'Catete': 4050, 'Bom Jesus': 4100, 'Cabiri': 4150},
+                'Quiçama': {'Muxima': 5200, 'Quixinge': 5250, 'Demba Chio': 5300},
+                'Viana': {'Estalagem': 3100, 'Zango': 3150, 'Calumbo': 3200}
+            };
+
+            var custoAdicional = custosAdicionais[municipio][bairro] || 0;
+            var custoEntrega = 800 + custoAdicional;
+
+            var resultado = {
+                municipio: municipio,
+                bairro: bairro,
+                preco: custoEntrega
+            };
+
+            mostrarResultado(resultado);
+        }
+
+        function mostrarResultado(resultado) {
+            var resultadoElement = document.getElementById('resultado');
+            resultadoElement.innerHTML = '<h2>Resultado do Cálculo:</h2>' +
+                                         '<p>Município: ' + resultado.municipio + '</p>' +
+                                         '<p>Bairro: ' + resultado.bairro + '</p>' +
+                                         '<p>Preço da entrega: ' + resultado.preco.toLocaleString('pt-PT', { style: 'currency', currency: 'AOA' }) + '</p>';
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            popularMunicipios();
+
+            var selectMunicipio = document.getElementById('municipio');
+            selectMunicipio.addEventListener('change', function() {
+                var municipioSelecionado = selectMunicipio.value;
+                if (municipioSelecionado) {
+                    popularBairros(municipioSelecionado);
+                }
+            });
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
