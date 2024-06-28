@@ -26,6 +26,12 @@
             max-width: 450px;
             width: 100%;
             text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2);
         }
 
         .logo {
@@ -37,6 +43,19 @@
             color: #333;
             margin-bottom: 20px;
             font-weight: 600;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            width: 50%;
+            height: 4px;
+            background-color: #28a745;
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
         .form {
@@ -57,15 +76,16 @@
             border: 1px solid #ccc;
             border-radius: 8px;
             font-size: 16px;
-            transition: border-color 0.3s ease;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         select:focus {
             border-color: #28a745;
+            box-shadow: 0 0 8px rgba(40, 167, 69, 0.2);
         }
 
         button {
-            background-color: #28a745;
+            background: linear-gradient(45deg, #28a745, #218838);
             color: #fff;
             padding: 12px 25px;
             border: none;
@@ -73,11 +93,11 @@
             cursor: pointer;
             font-size: 16px;
             font-weight: bold;
-            transition: background-color 0.3s ease, transform 0.3s ease;
+            transition: background 0.3s ease, transform 0.3s ease;
         }
 
         button:hover {
-            background-color: #218838;
+            background: linear-gradient(45deg, #218838, #1e7e34);
             transform: translateY(-2px);
         }
 
@@ -87,6 +107,7 @@
             border-radius: 12px;
             border: 1px solid #dee2e6;
             margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .resultado h2 {
@@ -216,3 +237,4 @@
     </script>
 </body>
 </html>
+
