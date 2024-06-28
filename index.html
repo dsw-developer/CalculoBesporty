@@ -47,8 +47,8 @@
             // Exemplo de mapeamento de bairros por município
             var bairrosPorMunicipio = {
                 'Luanda': ['Ingombota', 'Maianga', 'Samba'],
-                'Belas': ['Talatona', 'Benfica', 'Morro Bento','Kilamba' ],
-                'Cacuaco': ['Sequele', 'Kicolo', 'Cacuaco''Morro Bento'],
+                'Belas': ['Talatona', 'Benfica', 'Morro Bento','Kilamba'],
+                'Cacuaco': ['Sequele', 'Kicolo', 'Cacuaco', 'Morro Bento'],
                 'Cazenga': ['Hoji Ya Henda', 'Tala Hady', 'Cazenga'],
                 'Ícolo e Bengo': ['Catete', 'Bom Jesus', 'Cabiri'],
                 'Quiçama': ['Muxima', 'Quixinge', 'Demba Chio'],
@@ -89,7 +89,7 @@
             };
 
             var custoAdicional = custosAdicionais[municipio][bairro] || 0;
-            var custoEntrega = 800 + custoAdicional;
+            var custoEntrega = 880 + custoAdicional;
 
             var resultado = {
                 municipio: municipio,
