@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora de Entrega em Luanda na Be Sporty</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Poppins', sans-serif;
             background-color: #f0f2f5;
             margin: 0;
             padding: 0;
@@ -19,22 +20,23 @@
 
         .container {
             background-color: #fff;
-            padding: 20px 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            max-width: 400px;
+            padding: 30px 50px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            max-width: 450px;
             width: 100%;
             text-align: center;
         }
 
         .logo {
-            max-width: 100px;
+            max-width: 150px;
             margin-bottom: 20px;
         }
 
         h2 {
             color: #333;
             margin-bottom: 20px;
+            font-weight: 600;
         }
 
         .form {
@@ -50,31 +52,39 @@
 
         select {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             margin-bottom: 20px;
             border: 1px solid #ccc;
-            border-radius: 4px;
+            border-radius: 8px;
             font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        select:focus {
+            border-color: #28a745;
         }
 
         button {
             background-color: #28a745;
             color: #fff;
-            padding: 10px 20px;
+            padding: 12px 25px;
             border: none;
-            border-radius: 4px;
+            border-radius: 8px;
             cursor: pointer;
             font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
         button:hover {
             background-color: #218838;
+            transform: translateY(-2px);
         }
 
         .resultado {
             background-color: #f8f9fa;
             padding: 20px;
-            border-radius: 8px;
+            border-radius: 12px;
             border: 1px solid #dee2e6;
             margin-top: 20px;
         }
@@ -82,6 +92,7 @@
         .resultado h2 {
             margin: 0 0 10px;
             color: #333;
+            font-weight: 600;
         }
 
         .resultado p {
@@ -203,7 +214,5 @@
             });
         });
     </script>
-    <script src="script.js"></script>
 </body>
 </html>
-
