@@ -7,27 +7,38 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-color: #28a745;
+            --secondary-color: #218838;
+            --background-color: #f0f2f5;
+            --container-bg-color: #fff;
+            --text-color: #333;
+            --border-radius: 12px;
+            --box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            --transition-time: 0.3s;
+        }
+
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #f0f2f5;
+            background-color: var(--background-color);
             margin: 0;
             padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            color: #333;
+            color: var(--text-color);
         }
 
         .container {
-            background-color: #fff;
+            background-color: var(--container-bg-color);
             padding: 40px 60px;
-            border-radius: 12px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
             max-width: 500px;
             width: 100%;
             text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform var(--transition-time) ease, box-shadow var(--transition-time) ease;
         }
 
         .container:hover {
@@ -38,6 +49,11 @@
         .logo {
             max-width: 200px;
             margin-bottom: 20px;
+            transition: transform var(--transition-time) ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.1);
         }
 
         h2 {
@@ -52,7 +68,7 @@
             content: '';
             width: 50px;
             height: 4px;
-            background-color: #28a745;
+            background-color: var(--primary-color);
             position: absolute;
             bottom: -10px;
             left: 50%;
@@ -75,45 +91,51 @@
             padding: 12px;
             margin-bottom: 20px;
             border: 1px solid #ddd;
-            border-radius: 8px;
+            border-radius: var(--border-radius);
             font-size: 16px;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            transition: border-color var(--transition-time) ease, box-shadow var(--transition-time) ease;
         }
 
         select:focus {
-            border-color: #28a745;
+            border-color: var(--primary-color);
             box-shadow: 0 0 8px rgba(40, 167, 69, 0.1);
         }
 
         button {
-            background: linear-gradient(45deg, #28a745, #218838);
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
             color: #fff;
             padding: 12px 25px;
             border: none;
-            border-radius: 8px;
+            border-radius: var(--border-radius);
             cursor: pointer;
             font-size: 16px;
             font-weight: bold;
-            transition: background 0.3s ease, transform 0.3s ease;
+            transition: background var(--transition-time) ease, transform var(--transition-time) ease;
         }
 
         button:hover {
-            background: linear-gradient(45deg, #218838, #1e7e34);
+            background: linear-gradient(45deg, var(--secondary-color), #1e7e34);
             transform: translateY(-2px);
         }
 
         .resultado {
             background-color: #f8f9fa;
             padding: 20px;
-            border-radius: 12px;
+            border-radius: var(--border-radius);
             border: 1px solid #dee2e6;
             margin-top: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform var(--transition-time) ease, box-shadow var(--transition-time) ease;
+        }
+
+        .resultado:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
         }
 
         .resultado h2 {
             margin: 0 0 10px;
-            color: #333;
+            color: var(--text-color);
             font-weight: 600;
         }
 
@@ -238,3 +260,4 @@
     </script>
 </body>
 </html>
+
