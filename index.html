@@ -137,7 +137,7 @@
 </head>
 <body>
     <div class="container">
-        <h3>Calculadora de Entrega Be Sporty</h3>
+        <h4>Calculadora de Entrega Be Sporty</h4>
         
         <div class="form">
             <label for="municipio">Selecione o Município:</label>
@@ -229,7 +229,7 @@
 
         function mostrarResultado(resultado) {
             var resultadoElement = document.getElementById('resultado');
-            resultadoElement.innerHTML = '<h2>Resultado do Cálculo:</h2>' +
+            resultadoElement.innerHTML = '<h2>Cálculo Be Sporty:</h2>' +
                                          '<p>Município: ' + resultado.municipio + '</p>' +
                                          '<p>Bairro: ' + resultado.bairro + '</p>' +
                                          '<p>Preço da entrega: ' + resultado.preco.toLocaleString('pt-PT', { style: 'currency', currency: 'AOA' }) + '</p>';
